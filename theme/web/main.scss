@@ -1,0 +1,23 @@
+@import "custom-variables";
+
+.brighten-parent {
+      position: relative;
+    }
+
+/* Apply brightness to the parent */
+.brighten-parent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust brightness here */
+    pointer-events: none; /* Allows interaction with the content */
+    z-index: 1; /* Ensure it’s on top of the parent content but below children */
+}
+
+.brighten-parent > * {
+    position: relative;
+    z-index: 2; /* Ensure children stay on top of the brightness overlay */
+}
